@@ -1,4 +1,4 @@
-# quiz-angular1
+# quiz-angularjs
 
 Used to create the [FirstFT Quiz](http://www.ft.com/firstftquiz).
 

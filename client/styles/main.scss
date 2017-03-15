@@ -306,8 +306,9 @@ $share-button-size: 38px;
 
 .animate-reveal {
   position: relative;
-  opacity: 1;
   top: 0;
+  padding-top: 10px;
+  opacity: 1;
 }
 
 .animate-reveal.ng-hide-add, .animate-reveal.ng-hide-remove {

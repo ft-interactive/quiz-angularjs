@@ -2,7 +2,7 @@
   <div class="o-grid-row">
     <div data-o-grid-colspan="12 S11 Scenter M9 L8 XL7">
       <figure class="graphic graphic-b-1 graphic-pad-1">
-        <img alt="" src="https://image.webservices.ft.com/v1/images/raw/http%3A%2F%2Fcom.ft.imagepublish.prod.s3.amazonaws.com%2Fc4bf0be4-7c15-11e4-a7b8-00144feabdc0?source=ig&amp;fit=scale-down&amp;width=700">
+        <img alt="" src="https://www.ft.com/__origami/service/image/v2/images/raw/ftcms%3A178394c2-08bd-11e7-97d1-5e720a26771b?source=ig&amp;fit=scale-down&amp;width=700">
         <figcaption class="o-typography-caption">©Credit person</figcaption>
       </figure>
       <p>
@@ -27,16 +27,10 @@
         <div data-o-grid-colspan="12 M8 center">
           <div class="o-grid-row">
             <div data-o-grid-colspan="12 L6" class="quiz-image">
-              <img alt="" ng-src="{{questions[$index].imgurl}}" style="width: 100%">
-
-              <div class="o-typography-caption">
-                {{questions[$index].imgcredit}}
-              </div>
+              <p ng-bind-html="questions[$index].question"></p>
             </div>
 
             <div data-o-grid-colspan="12 L6">
-              <p ng-bind-html="questions[$index].question"></p>
-
               <div class="answer-controls"
                   ng-repeat="choice in choices[$index]">
                 <button class="o-buttons o-buttons--big o-buttons--standout"
@@ -66,20 +60,6 @@
         <div data-o-grid-colspan="12 M8 L6 center">
           <div style="text-align: center">
             <i class="icon-arrow-down"></i>
-          </div>
-
-          <p>
-            {{questions[$index].answercopy}}
-          </p>
-
-          <div data-o-component="o-aside-panel" class="o-aside-panel">
-            <div class="o-aside-panel__header">
-              <h3 class="o-aside-panel__heading">More on this story</h3>
-            </div>
-
-            <div class="o-aside-panel__body">
-              <a href="{{questions[$index].linkurl}}" target="_blank">{{questions[$index].linktext}}</a>
-            </div>
           </div>
         <!-- /data-o-grid-colspan -->
         </div>
@@ -145,7 +125,7 @@
 
             Tweet Your Score
           </button> -->
-          
+
         </div>
       </div>
     </div>

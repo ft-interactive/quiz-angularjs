@@ -83,7 +83,7 @@ app.controller('QuizCtrl', ['$scope', '$http', $scope => {
 
 app.controller('QuestionCtrl', ['$scope', '$timeout', '$window', '$http',
   ($scope, $timeout, $window, $http) => {
-    $scope.submitAnswer = function () {
+    $scope.submitAnswer = () => {
       let scoreProportion = {};
       $scope.answerSubmitted = true;
       $scope.userAnswer = this.choice;
@@ -113,7 +113,8 @@ app.controller('QuestionCtrl', ['$scope', '$timeout', '$window', '$http',
           'Answer Submitted', $scope.userAnswer);
       }
 
-      console.log(`question: ${$scope.currentQuestion.value}, correct: ${$scope.isCorrect}, score: ${$scope.userScore.value}`);
+      console.log(`question: ${$scope.currentQuestion.value},
+        correct: ${$scope.isCorrect}, score: ${$scope.userScore.value}`);
 
       // Display result splash
       if ($scope.answerSubmitted) {

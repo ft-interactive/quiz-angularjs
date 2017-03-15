@@ -188,7 +188,7 @@ $share-button-size: 38px;
     width: 100%;
     max-width: 625px;
     margin: 0 auto 6px;
-    text-transform: uppercase;
+    // text-transform: uppercase;
     &.tweet-result {
       margin-top: 20px;
     }
@@ -253,6 +253,14 @@ $share-button-size: 38px;
   -moz-transform: scaleY(-1);
   -o-transform: scaleY(-1);
   transform: scaleY(-1);
+}
+
+span.pass-fail {
+  text-transform: uppercase;
+  color: #cc0000;
+  &.pass {
+    color: #458b00;
+  }
 }
 
 .o-big-number__title.gauge {

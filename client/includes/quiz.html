@@ -95,7 +95,8 @@
   <div ng-show="quizStatus.isOver">
     <div class="o-grid-row">
       <div data-o-grid-colspan="12 M8 L6 center" style="margin-top: 6px; text-align: center">
-        <h2 class="o-typography-header-2">Your result: {{message.text}}</h2>
+        <h2 class="o-typography-header-2">Your result: <span class="pass-fail" ng-class="{pass: userScore.value >= 7}">{{message.text}}!</span></h2>
+        <p>{{message.para}}</p>
       </div>
     </div>
 
@@ -115,22 +116,22 @@
     <div class="o-grid-row">
       <div data-o-grid-colspan="12 M8 L6 center" style="margin-top: 0.5em; margin-bottom: 0.8em; text-align: center">
         <div class="answer-controls">
-          <!-- <button class="o-buttons o-buttons--big o-buttons--standout tweet-result"
+          <button class="o-buttons o-buttons--big o-buttons--standout tweet-result"
               ng-disabled="!quizStatus.isOver"
               socialshare
               socialshare-provider="twitter"
-              socialshare-text="I just scored {{userScore.value}}/{{questions.length}} on the #FirstFT quiz! Challenge me: "
-              socialshare-url="http://www.ft.com/firstft-quiz">
+              socialshare-text="I {{message.text}}ed the FT's Spanish citizenship quiz! Take it yourself to see if you'd qualify for a ‘pasaporte’:"
+              socialshare-url="https://ig.ft.com/sites/quiz/spanish-citizenship-test/">
             <i class="fa fa-twitter"></i>
 
-            Tweet Your Score
-          </button> -->
+            Tweet Your Result
+          </button>
 
         </div>
       </div>
     </div>
 
-    <div class="o-grid-row">
+    <!-- <div class="o-grid-row">
       <div data-o-grid-colspan="12 M8 L6 center">
         <div data-o-component="o-aside-panel" class="o-aside-panel" style="margin-top: 4px">
           <div class="o-aside-panel__header">
@@ -146,7 +147,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
   <!-- /ng-show -->
   </div>
 </div>

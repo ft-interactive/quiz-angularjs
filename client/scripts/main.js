@@ -71,7 +71,8 @@ app.controller('QuizCtrl', ['$scope', '$http', $scope => {
     isOver: false
   };
   $scope.message = {
-    text: null
+    text: null,
+    para: null,
   };
 
   angular.forEach(window.quiz.data, row => {
@@ -97,21 +98,22 @@ app.controller('QuestionCtrl', ['$scope', '$timeout', '$window', '$http',
       if ($scope.userAnswer === $scope.correctAnswer) {
         $scope.isCorrect = true;
         $scope.userScore.value++;
-
         // Log correct answer in GA
         $window.ga('send', 'event',
-          ($scope.currentQuestion.value < 9 ? '0' : null) +
+          ($scope.currentQuestion.value < 10 ? '0' : null) +
           ($scope.currentQuestion.value + 1) + '. ' +
           $scope.questions[$scope.currentQuestion.value].question,
           'Answer Submitted', $scope.userAnswer + '*');
       } else {
         // Log incorrect answer in GA
         $window.ga('send', 'event',
-          ($scope.currentQuestion.value < 9 ? '0' : null) +
+          ($scope.currentQuestion.value < 10 ? '0' : null) +
           ($scope.currentQuestion.value + 1) + '. ' +
           $scope.questions[$scope.currentQuestion.value].question,
           'Answer Submitted', $scope.userAnswer);
       }
+
+      console.log(`question: ${$scope.currentQuestion.value}, correct: ${$scope.isCorrect}, score: ${$scope.userScore.value}`);
 
       // Display result splash
       if ($scope.answerSubmitted) {
@@ -122,20 +124,18 @@ app.controller('QuestionCtrl', ['$scope', '$timeout', '$window', '$http',
       }
 
       // Update progress bar
-      const progress = ($scope.currentQuestion.value + 1) * 10;
+      const progress = ($scope.currentQuestion.value + 1) * 9.09;
       document.querySelector('.progress-bar').style.width = `${progress}%`;
 
       // console.log(window.responses.data[$scope.userScore.value].percentage);
 
       function message() {
-        if ($scope.userScore.value > $scope.questions.length / 2) {
-          if ($scope.userScore.value === $scope.questions.length) {
-            $scope.message.text = 'first rate!';
-          } else {
-            $scope.message.text = 'not too shabby!';
-          }
+        if ($scope.userScore.value >= 7) {
+          $scope.message.text = 'pass';
+          $scope.message.para = 'Pass message!';
         } else {
-          $scope.message.text = 'room for improvement!';
+          $scope.message.text = 'fail';
+          $scope.message.para = 'Fail message!';
         }
       }
 

@@ -95,8 +95,8 @@
   <div ng-show="quizStatus.isOver">
     <div class="o-grid-row">
       <div data-o-grid-colspan="12 M8 L6 center" style="margin-top: 6px; text-align: center">
-        <h2 class="o-typography-header-2">Your result: <span class="pass-fail" ng-class="{pass: userScore.value >= 7}">{{message.text}}!</span></h2>
-        <p>{{message.para}}</p>
+        <h2 class="o-typography-header-2">Your result: {{userScore.value}}/{{questions.length}}</h2>
+        <p>{{message.text}}</p>
       </div>
     </div>
 

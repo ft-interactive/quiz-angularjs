@@ -131,12 +131,23 @@ app.controller('QuestionCtrl', ['$scope', '$timeout', '$window', '$http',
       // console.log(window.responses.data[$scope.userScore.value].percentage);
 
       function message() {
-        if ($scope.userScore.value >= 7) {
-          $scope.message.text = 'pass';
-          $scope.message.para = 'Pass message!';
-        } else {
-          $scope.message.text = 'fail';
-          $scope.message.para = 'Fail message!';
+        switch ($scope.userScore.value) {
+          default:
+            $scope.message.text = '0-3 category message';
+            break;
+          case 4:
+          case 5:
+          case 6:
+            $scope.message.text = '4-6 category message';
+            break;
+          case 7:
+          case 8:
+          case 9:
+            $scope.message.text = '7-9 category message';
+            break;
+          case 10:
+          case 11:
+            $scope.message.text = '10+ category message';
         }
       }
 

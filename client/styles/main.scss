@@ -255,14 +255,6 @@ $share-button-size: 38px;
   transform: scaleY(-1);
 }
 
-span.pass-fail {
-  text-transform: uppercase;
-  color: #cc0000;
-  &.pass {
-    color: #458b00;
-  }
-}
-
 .o-big-number__title.gauge {
   position: absolute;
   top: 66px;

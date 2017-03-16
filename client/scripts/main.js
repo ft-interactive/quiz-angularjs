@@ -138,12 +138,12 @@ app.controller('QuestionCtrl', ['$scope', '$timeout', '$window', '$http',
           case 4:
           case 5:
           case 6:
-            $scope.message.text = '<p>Close, but not close enough. Brush up on your Spain knowledge.</p>';
+            $scope.message.text = '<p>Close, but not close enough. Brush up on your Spain knowledge.</p>'; // eslint-disable-line
             break;
           case 7:
           case 8:
           case 9:
-            $scope.message.text = '<p>Well done! You should pass the citizenship test with flying colours.</p>';
+            $scope.message.text = '<p>Well done! You should pass the citizenship test with flying colours.</p>'; // eslint-disable-line
             break;
           case 10:
           case 11:

@@ -6,7 +6,16 @@
         <figcaption class="o-typography-caption">©Credit person</figcaption>
       </figure>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        The eleven questions below are selected from the 300 test questions that form the basis of Spain's CCSE citizenship test. The test covers “constitutional and socio-cultural” knowledge, and is administered by the Cervantes Institute, the official body that promotes Spanish culture and language overseas.
+      </p>
+      <p>
+        In the real-life test, candidates must answer 25 multiple choice questions, of which they must get at least 15 right. For the purpose of our quiz:
+        <ul>
+          <li><em>0-3 correct answers:</em> Not a chance. Better hang on to that British passport.</li>
+          <li><em>4-6 correct answers:</em> Close, but not close enough. Brush up on your Spain knowledge.</li>
+          <li><em>7-9 correct answers:</em> Well done! You should pass the citizenship test with flying colours.</li>
+          <li><em>10-11 correct answers: ¡Enhorabuena!</em> You have gone native already.</li>
+        </ul>
       </p>
     </div>
   </div>
@@ -94,9 +103,9 @@
   <!-- Results -->
   <div ng-show="quizStatus.isOver">
     <div class="o-grid-row">
-      <div data-o-grid-colspan="12 M8 L6 center" style="margin-top: 6px; text-align: center">
-        <h2 class="o-typography-header-2">Your result: {{userScore.value}}/{{questions.length}}</h2>
-        <p>{{message.text}}</p>
+      <div data-o-grid-colspan="12 M8 L6 center" style="margin-top: 6px;">
+        <h2 class="o-typography-header-2" style="text-align: center;">Your result: {{userScore.value}}/{{questions.length}}</h2>
+        <div ng-bind-html="message.text"></div>
       </div>
     </div>
 
@@ -120,7 +129,7 @@
               ng-disabled="!quizStatus.isOver"
               socialshare
               socialshare-provider="twitter"
-              socialshare-text="I {{message.text}}ed the FT's Spanish citizenship quiz! Take it yourself to see if you'd qualify for a ‘pasaporte’:"
+              socialshare-text="I scored {{userScore.value}}/{{questions.length}} on the FT's Spanish citizenship quiz! Would you qualify for a ‘pasaporte’?"
               socialshare-url="https://ig.ft.com/sites/quiz/spanish-citizenship-test/">
             <i class="fa fa-twitter"></i>
 
@@ -130,25 +139,6 @@
         </div>
       </div>
     </div>
-
-    <!-- <div class="o-grid-row">
-      <div data-o-grid-colspan="12 M8 L6 center">
-        <div data-o-component="o-aside-panel" class="o-aside-panel" style="margin-top: 4px">
-          <div class="o-aside-panel__header">
-            <h3 class="o-aside-panel__heading">Featured in this quiz</h3>
-          </div>
-
-          <div class="o-aside-panel__body">
-            <ol style="font-size: 16px; font-weight: 400">
-              <li ng-repeat="question in questions">
-                <a href="{{question.linkurl}}" target="_blank">{{question.linktext}}</a>
-              </li>
-            </ol>
-          </div>
-        </div>
-      </div>
-    </div> -->
-  <!-- /ng-show -->
   </div>
 </div>
 

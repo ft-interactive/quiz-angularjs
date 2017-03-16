@@ -133,21 +133,21 @@ app.controller('QuestionCtrl', ['$scope', '$timeout', '$window', '$http',
       function message() {
         switch ($scope.userScore.value) {
           default:
-            $scope.message.text = '0-3 category message';
+            $scope.message.text = '<p>Not a chance. Better hang on to that British passport.</p>';
             break;
           case 4:
           case 5:
           case 6:
-            $scope.message.text = '4-6 category message';
+            $scope.message.text = '<p>Close, but not close enough. Brush up on your Spain knowledge.</p>';
             break;
           case 7:
           case 8:
           case 9:
-            $scope.message.text = '7-9 category message';
+            $scope.message.text = '<p>Well done! You should pass the citizenship test with flying colours.</p>';
             break;
           case 10:
           case 11:
-            $scope.message.text = '10+ category message';
+            $scope.message.text = '<p><em>¡Enhorabuena!</em> You have gone native already.</p>';
         }
       }
 

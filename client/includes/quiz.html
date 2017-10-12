@@ -1,7 +1,7 @@
 <div class="o-grid-container">
   <div class="o-grid-row">
     <div data-o-grid-colspan="12 S11 Scenter M9 L8 XL7">
-      <p>
+      <p class="o-typography-body">
         <em>First</em>FT is your essential daily email briefing of the world's top stories from the FT and the best of the rest of the web. <a href="http://on.ft.com/1be4Xi1" class="o-buttons" target="_blank">Sign Up Now</a>
       </p>
     </div>
@@ -15,7 +15,7 @@
 
       <div class="o-grid-row">
         <div data-o-grid-colspan="12 M8 L6 center">
-          <h2 style="text-align: center">Question {{$index + 1}} of {{questions.length}}</h2>
+          <h2 class="o-typography-heading-level-2" style="text-align: center">Question {{$index + 1}} of {{questions.length}}</h2>
         </div>
       </div>
 
@@ -31,11 +31,11 @@
             </div>
 
             <div data-o-grid-colspan="12 L6">
-              <p ng-bind-html="questions[$index].question"></p>
+              <p class="o-typography-body" ng-bind-html="questions[$index].question"></p>
 
               <div class="answer-controls"
                   ng-repeat="choice in choices[$index]">
-                <button class="o-buttons o-buttons--big o-buttons--standout"
+                <button class="o-buttons o-buttons--big o-buttons--primary"
                     ng-click="submitAnswer()"
                     ng-class="{correct: answerSubmitted && choice === correctAnswer, incorrect: answerSubmitted && choice != correctAnswer}"
                     ng-disabled="answerSubmitted">
@@ -64,7 +64,7 @@
             <i class="icon-arrow-down"></i>
           </div>
 
-          <p>
+          <p class="o-typography-body">
             {{questions[$index].answercopy}}
           </p>
 
@@ -74,7 +74,7 @@
             </div>
 
             <div class="o-aside-panel__body">
-              <a href="{{questions[$index].linkurl}}" target="_blank">{{questions[$index].linktext}}</a>
+              <a href="{{questions[$index].linkurl}}" target="_blank" class="o-typography-link">{{questions[$index].linktext}}</a>
             </div>
           </div>
         <!-- /data-o-grid-colspan -->
@@ -89,7 +89,7 @@
           Correct
 
           <div>
-            <i class="icon-thumb-up"></i>
+            <i class="icon-tick large"></i>
           </div>
         </div>
 
@@ -98,7 +98,7 @@
           Incorrect
 
           <div>
-            <i class="icon-thumb-down"></i>
+            <i class="icon-cross large"></i>
           </div>
         </div>
       </div>
@@ -111,7 +111,7 @@
   <div ng-show="quizStatus.isOver">
     <div class="o-grid-row">
       <div data-o-grid-colspan="12 M8 L6 center" style="margin-top: 6px; text-align: center">
-        <h2 class="o-typography-header-2">Your result: {{message.text}}</h2>
+        <h2 class="o-typography-heading-level-2">Your result: {{message.text}}</h2>
       </div>
     </div>
 
@@ -131,7 +131,7 @@
     <div class="o-grid-row">
       <div data-o-grid-colspan="12 M8 L6 center" style="margin-top: 0.5em; margin-bottom: 0.8em; text-align: center">
         <div class="answer-controls">
-          <button class="o-buttons o-buttons--big o-buttons--standout tweet-result"
+          <button class="o-buttons o-buttons--big o-buttons--primary tweet-result"
               ng-disabled="!quizStatus.isOver"
               socialshare
               socialshare-provider="twitter"
@@ -139,11 +139,11 @@
               socialshare-url="http://www.ft.com/firstft-quiz">
             <i class="fa fa-twitter"></i>
 
-            Tweet Your Score
+            Tweet your score
           </button>
 
           <a href="http://www.ft.com/firstft" class="o-buttons o-buttons--big firstft">
-            GO TO <em>First</em>FT
+            Go to <em>First</em>FT
           </a>
         </div>
       </div>
@@ -157,9 +157,9 @@
           </div>
 
           <div class="o-aside-panel__body">
-            <ol style="font-size: 16px; font-weight: 400">
+            <ol class="o-typography-list o-typography-list--ordered">
               <li ng-repeat="question in questions">
-                <a href="{{question.linkurl}}" target="_blank">{{question.linktext}}</a>
+                <a href="{{question.linkurl}}" target="_blank" class="o-typography-link">{{question.linktext}}</a>
               </li>
             </ol>
           </div>

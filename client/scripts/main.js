@@ -74,9 +74,14 @@ app.controller('QuizCtrl', ['$scope', '$http', $scope => {
     text: null
   };
 
-  angular.forEach(window.quiz.data, row => {
+  angular.forEach(window.quiz.data, (row, i) => {
     $scope.questions.push(row);
-    $scope.choices.push([row.choice1, row.choice2, row.choice3]);
+
+    if (i < 9) {
+      $scope.choices.push([row.choice1, row.choice2, row.choice3, row.choice4]);
+    } else {
+      $scope.choices.push([row.choice1]);
+    }
   });
 }]);
 

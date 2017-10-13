@@ -4,5 +4,14 @@
   "publishedDate": "2017-10-14",
   "publishedDateText": "October 14, 2017",
   "sheetKey": "10bGLkMxu9pE0bEld3pKu4HuOEnG3U1C3cQx_wroNHaQ",
-  "responsesSheetKey": ""
+  "responsesSheetKey": "",
+  "flags": {
+    "onwardjourney": true
+  },
+  "onwardJourney": {
+    "relatedContent": [
+      { "rows": 1, "list": "list/graphics" },
+      { "rows": 1, "list": "thing/d8009323-f898-3207-b543-eab4427b7a77" }
+    ]
+  }
 }

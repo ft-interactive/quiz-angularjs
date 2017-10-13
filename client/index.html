@@ -77,10 +77,6 @@
     <meta name="theme-color" content="#fff1e0" />
 
     <include src="includes/analytics-ga.html"></include>
-
-    <!-- TODO: set base URL **with trailing slash** -->
-    <!-- <base href="/"> -->
-    <base href="https://ig.ft.com/quiz/trump-iq-test/">
   </head>
 
   <body>
@@ -115,6 +111,10 @@
         </div>
       </article>
     </main>
+
+    {% if flags.onwardjourney %}
+      {% include "includes/onwardjourney.html" %}
+    {% endif %}
 
     <include src="includes/footer.html"></include>
 

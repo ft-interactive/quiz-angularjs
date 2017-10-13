@@ -77,7 +77,7 @@ app.controller('QuizCtrl', ['$scope', '$http', $scope => {
   angular.forEach(window.quiz.data, (row, i) => {
     $scope.questions.push(row);
 
-    if (i < 7) {
+    if (i < 8) {
       $scope.choices.push([row.choice1, row.choice2, row.choice3, row.choice4]);
     } else {
       $scope.choices.push([row.choice1]);
@@ -91,7 +91,14 @@ app.controller('QuestionCtrl', ['$scope', '$timeout', '$window', '$http',
       let scoreProportion = {};
       $scope.answerSubmitted = true;
       $scope.userAnswer = this.choice;
-      $scope.correctAnswer = $scope.questions[$scope.currentQuestion.value].answer;
+      $scope.correctAnswer = $scope.questions[$scope.currentQuestion.value].answer
+      ? $scope.questions[$scope.currentQuestion.value].answer
+      : $scope.userAnswer;
+
+      // If no answer, set noAnswer
+      if (!$scope.questions[$scope.currentQuestion.value].answer) {
+        $scope.noAnswer = true;
+      }
 
       // If this is the first question, log a start in GA
       if ($scope.currentQuestion.value === 0) {
@@ -105,14 +112,14 @@ app.controller('QuestionCtrl', ['$scope', '$timeout', '$window', '$http',
 
         // Log correct answer in GA
         $window.ga('send', 'event',
-          ($scope.currentQuestion.value < 9 ? '0' : null) +
+          ($scope.currentQuestion.value < 7 ? '0' : null) +
           ($scope.currentQuestion.value + 1) + '. ' +
           $scope.questions[$scope.currentQuestion.value].question,
           'Answer Submitted', $scope.userAnswer + '*');
       } else {
         // Log incorrect answer in GA
         $window.ga('send', 'event',
-          ($scope.currentQuestion.value < 9 ? '0' : null) +
+          ($scope.currentQuestion.value < 7 ? '0' : null) +
           ($scope.currentQuestion.value + 1) + '. ' +
           $scope.questions[$scope.currentQuestion.value].question,
           'Answer Submitted', $scope.userAnswer);
@@ -127,40 +134,32 @@ app.controller('QuestionCtrl', ['$scope', '$timeout', '$window', '$http',
       }
 
       // Update progress bar
-      const progress = ($scope.currentQuestion.value + 1) * 10;
+      const progress = (($scope.currentQuestion.value + 1) / 9) * 100;
       document.querySelector('.progress-bar').style.width = `${progress}%`;
 
       // console.log(window.responses.data[$scope.userScore.value].percentage);
 
       function message() {
-        if ($scope.userScore.value > $scope.questions.length / 2) {
-          if ($scope.userScore.value === $scope.questions.length) {
-            $scope.message.text = 'first rate!';
-          } else {
-            $scope.message.text = 'not too shabby!';
-          }
-        } else {
-          $scope.message.text = 'room for improvement!';
-        }
+        $scope.message.text = 'the best IQ result! Ever!';
       }
 
-      function submit() {
-        const baseURL = 'https://docs.google.com/a/ft.com/forms/d/e/1FAIpQLSfoF6T9t1IGLNJat8JSw_HrxkWPyrxd2mfsH2LieGl7wteU9A/formResponse?entry.550613996=';
-        const submitURL = (baseURL + $scope.userScore.value);
-
-        $http({
-          method: 'POST',
-          url: submitURL,
-        }).then(function success(response) {
-            // this callback will be called asynchronously
-            // when the response is available
-          return;
-        }, function error(response) {
-          // called asynchronously if an error occurs
-          // or server returns response with an error status.
-          console.log(`Server responded with status ${response.status}`);
-        });
-      }
+      // function submit() {
+      //   const baseURL = 'https://docs.google.com/a/ft.com/forms/d/e/1FAIpQLSfoF6T9t1IGLNJat8JSw_HrxkWPyrxd2mfsH2LieGl7wteU9A/formResponse?entry.550613996=';
+      //   const submitURL = (baseURL + $scope.userScore.value);
+      //
+      //   $http({
+      //     method: 'POST',
+      //     url: submitURL,
+      //   }).then(function success(response) {
+      //       // this callback will be called asynchronously
+      //       // when the response is available
+      //     return;
+      //   }, function error(response) {
+      //     // called asynchronously if an error occurs
+      //     // or server returns response with an error status.
+      //     console.log(`Server responded with status ${response.status}`);
+      //   });
+      // }
 
       // Check to see if quiz is over
       if ($scope.currentQuestion.value === $scope.questions.length - 1) {
@@ -168,7 +167,7 @@ app.controller('QuestionCtrl', ['$scope', '$timeout', '$window', '$http',
 
         score.setAttribute('transform', `rotate(-90, ${x}, ${y})`);
 
-        scoreProportion = $scope.userScore.value / $scope.questions.length;
+        scoreProportion = 1;
 
         $scope.quizStatus.isOver = true;
 
@@ -185,7 +184,7 @@ app.controller('QuestionCtrl', ['$scope', '$timeout', '$window', '$http',
         // Log completion and score in GA
         $window.ga('send', 'event', 'Completions', 'Quiz Completed');
         $window.ga('send', 'event', 'Completions', 'Score',
-          $scope.userScore.value + ' out of 10');
+          $scope.userScore.value + ' out of 9');
         $window.ga('send', 'event', 'Completions', 'Score', 'Total Score',
           $scope.userScore.value);
       } else {

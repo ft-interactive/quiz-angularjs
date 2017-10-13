@@ -2,7 +2,7 @@
   <div class="o-grid-row">
     <div data-o-grid-colspan="12 S11 Scenter M9 L8 XL7">
       <p class="o-typography-body">
-        US President Donald Trump this week proclaimed his willingness to compare his IQ with that of Rex Tillerson, secretary of state,  following press reports that said the nation’s top diplomat had described the commander-in-chief as a “moron”. As the world awaited the showdown, the FT’s crack fake news team learnt that the White House’s Office of American Innovation, led by presidential son-in-law Jared Kushner, has interrupted its work on repairing the nation’s infrastructure and improving the quality of domestic medical marijuana to ​has devised an IQ test appropriate for Trump Administration use. Here are the queries FT has unearthed so far:
+        President Donald Trump this week proclaimed his willingness to compare his IQ with that of Rex Tillerson, secretary of state, following press reports that said the nation’s top diplomat had described the commander-in-chief as a “moron”. As the world awaited the showdown, the FT’s crack fake news team learnt that the White House’s Office of American Innovation has devised an IQ test appropriate for Trump administration use. Here are the queries unearthed so far:
       </p>
     </div>
   </div>
@@ -35,9 +35,12 @@
 
               <div class="answer-controls"
                   ng-repeat="choice in choices[$index]">
+                  <!-- <p>
+                    {{questions[$index].answer.length}}
+                  </p> -->
                 <button class="o-buttons o-buttons--big o-buttons--primary"
                     ng-click="submitAnswer()"
-                    ng-class="{correct: answerSubmitted && choice === correctAnswer, incorrect: answerSubmitted && choice != correctAnswer}"
+                    ng-class="{correct: (answerSubmitted && choice === correctAnswer) || (answerSubmitted && noAnswer), incorrect: answerSubmitted && choice != correctAnswer && !noAnswer}"
                     ng-disabled="answerSubmitted">
 
                   {{choice}}
@@ -99,6 +102,16 @@
   <!-- Results -->
   <div ng-show="quizStatus.isOver">
     <div class="o-grid-row">
+      <div data-o-grid-colspan="12 S11 Scenter M9 L8 XL7">
+        <p class="o-typography-body">
+          How did you score? In an age of fake news, determining what is right or wrong can be tricky. Anyone who knows the answers, please get in touch.
+        </p>
+        <p class="o-typography-body">
+          <a href="mailto:gary.silverman@ft.com" class="o-typography-link"><em>gary.silverman@ft.com</em></a>
+        </p>
+      </div>
+    </div>
+    <div class="o-grid-row">
       <div data-o-grid-colspan="12 M8 L6 center" style="margin-top: 6px; text-align: center">
         <h2 class="o-typography-heading-level-2">Your result: {{message.text}}</h2>
       </div>
@@ -112,7 +125,7 @@
         </svg>
 
         <div class="o-big-number__title gauge" style="text-align: center">
-          <span>{{userScore.value}}</span><span>/{{questions.length}}</span>
+          <span>12</span><span>/9</span>
         </div>
       </div>
     </div>

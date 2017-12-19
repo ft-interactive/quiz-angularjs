@@ -122,7 +122,7 @@ app.controller('QuestionCtrl', ['$scope', '$timeout', '$window', '$http',
       }
 
       // Update progress bar
-      const progress = ($scope.currentQuestion.value + 1) * 10;
+      const progress = ($scope.currentQuestion.value + 1) * 2;
       document.querySelector('.progress-bar').style.width = `${progress}%`;
 
       // console.log(window.responses.data[$scope.userScore.value].percentage);
@@ -180,7 +180,7 @@ app.controller('QuestionCtrl', ['$scope', '$timeout', '$window', '$http',
         // Log completion and score in GA
         $window.ga('send', 'event', 'Completions', 'Quiz Completed');
         $window.ga('send', 'event', 'Completions', 'Score',
-          $scope.userScore.value + ' out of 10');
+          $scope.userScore.value + ' out of 50');
         $window.ga('send', 'event', 'Completions', 'Score', 'Total Score',
           $scope.userScore.value);
       } else {

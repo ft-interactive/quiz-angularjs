@@ -76,7 +76,7 @@ app.controller('QuizCtrl', ['$scope', '$http', $scope => {
 
   angular.forEach(window.quiz.data, row => {
     $scope.questions.push(row);
-    $scope.choices.push([row.choice1, row.choice2, row.choice3]);
+    $scope.choices.push([row.choice1, row.choice2, row.choice3, row.choice4]);
   });
 }]);
 
@@ -100,14 +100,14 @@ app.controller('QuestionCtrl', ['$scope', '$timeout', '$window', '$http',
 
         // Log correct answer in GA
         $window.ga('send', 'event',
-          ($scope.currentQuestion.value < 9 ? '0' : null) +
+          ($scope.currentQuestion.value < ($scope.questions.length - 1) ? '0' : null) +
           ($scope.currentQuestion.value + 1) + '. ' +
           $scope.questions[$scope.currentQuestion.value].question,
           'Answer Submitted', $scope.userAnswer + '*');
       } else {
         // Log incorrect answer in GA
         $window.ga('send', 'event',
-          ($scope.currentQuestion.value < 9 ? '0' : null) +
+          ($scope.currentQuestion.value < ($scope.questions.length - 1) ? '0' : null) +
           ($scope.currentQuestion.value + 1) + '. ' +
           $scope.questions[$scope.currentQuestion.value].question,
           'Answer Submitted', $scope.userAnswer);
@@ -122,7 +122,7 @@ app.controller('QuestionCtrl', ['$scope', '$timeout', '$window', '$http',
       }
 
       // Update progress bar
-      const progress = ($scope.currentQuestion.value + 1) * 10;
+      const progress = ($scope.currentQuestion.value + 1) * (100 / ($scope.questions.length));
       document.querySelector('.progress-bar').style.width = `${progress}%`;
 
       // console.log(window.responses.data[$scope.userScore.value].percentage);

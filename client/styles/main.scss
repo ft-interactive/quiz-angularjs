@@ -1,24 +1,11 @@
-$o-aside-panel-is-silent: false;
-@import 'o-aside-panel/main';
-
 $o-big-number-is-silent: false;
-@import 'o-big-number/main';
-
-$o-buttons-is-silent: false;
-@import 'o-buttons/main';
-
-@import 'o-colors/main';
-
 $o-grid-is-silent: false;
-@import 'o-grid/main';
-
-$o-header-is-silent: false;
-@import 'o-header/main';
-
-$o-icons-is-silent: false;
-@import "o-icons/main";
-
 $o-typography-is-silent: false;
+
+@import 'o-big-number/main';
+@import 'o-colors/main';
+@import 'o-grid/main';
+@import "o-icons/main";
 @import 'o-typography/main';
 
 $font-sans: MetricWeb, sans-serif;

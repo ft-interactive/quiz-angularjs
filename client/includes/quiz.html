@@ -161,25 +161,6 @@
         </div>
       </div>
     </div>
-
-    <div class="o-grid-row">
-      <div data-o-grid-colspan="12 M8 L6 center">
-        <div data-o-component="o-aside-panel" class="o-aside-panel" style="margin-top: 4px">
-          <div class="o-aside-panel__header">
-            <h3 class="o-aside-panel__heading">Featured in this quiz</h3>
-          </div>
-
-          <div class="o-aside-panel__body">
-            <ol class="o-typography-list o-typography-list--ordered">
-              <li ng-repeat="question in questions"
-                    ng-show="question.linkurl">
-                <a href="{{question.linkurl}}" target="_blank" class="o-typography-link">{{question.linktext}}</a>
-              </li>
-            </ol>
-          </div>
-        </div>
-      </div>
-    </div>
   <!-- /ng-show -->
   </div>
 </div>

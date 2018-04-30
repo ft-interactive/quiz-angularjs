@@ -18,7 +18,7 @@
               <img alt="" ng-src="{{questions[$index].imgurl}}" style="width: 100%">
 
               <div class="o-typography-caption">
-                {{questions[$index].imgcredit}}
+                &copy;&nbsp;{{questions[$index].imgcredit}}
               </div>
             </div>
 
@@ -60,7 +60,8 @@
             {{questions[$index].answercopy}}
           </p>
 
-          <div data-o-component="o-aside-panel" class="o-aside-panel">
+          <div data-o-component="o-aside-panel" class="o-aside-panel"
+              ng-show="questions[$index].linkurl">
             <div class="o-aside-panel__header">
               <h3 class="o-aside-panel__heading">More on this story</h3>
             </div>
@@ -146,7 +147,8 @@
 
           <div class="o-aside-panel__body">
             <ol class="o-typography-list o-typography-list--ordered">
-              <li ng-repeat="question in questions">
+              <li ng-repeat="question in questions"
+                    ng-show="question.linkurl">
                 <a href="{{question.linkurl}}" target="_blank" class="o-typography-link">{{question.linktext}}</a>
               </li>
             </ol>

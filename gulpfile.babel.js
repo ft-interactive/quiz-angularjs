@@ -144,12 +144,15 @@ gulp.task('copy', () => gulp.src(
   .pipe(gulp.dest('dist'))
 );
 
-gulp.task('build-pages', () =>
+gulp.task('build-pages', () => {
+  const jsonData = require('./config.json');
+  jsonData.now = new Date();
+
   gulp.src(['client/**/*.html', '!client/includes/**.html'])
-      .pipe($.data(() => require('./config.json')))
+      .pipe($.data(() => jsonData))
       .pipe($.nunjucks.compile())
-      .pipe($.htmlTagInclude()).pipe(gulp.dest('.tmp'))
-);
+      .pipe($.htmlTagInclude()).pipe(gulp.dest('.tmp'));
+});
 
 // minifies all HTML, CSS and JS (.tmp & client => dist)
 gulp.task('html', done => {

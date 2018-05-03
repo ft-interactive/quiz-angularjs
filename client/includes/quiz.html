@@ -25,7 +25,8 @@
             <div data-o-grid-colspan="12 L6" class="quiz-image">
               <img alt="" ng-src="{{questions[$index].imgurl}}" style="width: 100%">
 
-              <div class="o-typography-caption">
+              <div class="o-typography-caption"
+                  ng-show="questions[$index].imgcredit">
                 &copy;&nbsp;{{questions[$index].imgcredit}}
               </div>
             </div>

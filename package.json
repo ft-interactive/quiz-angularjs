@@ -49,7 +49,7 @@
   "private": true,
   "scripts": {
     "build": "gulp build",
-    "postinstall": "bower install",
+    "postinstall": "bower install --allow-root",
     "start": "nodemon --watch gulpfile.babel.js --exec 'gulp clean && gulp serve'",
     "deploy": "ft-graphics-deploy --assets-prefix=https://ig.ft.com/v2/__assets/",
     "test": "npm run build"

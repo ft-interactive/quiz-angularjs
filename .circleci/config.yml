@@ -52,15 +52,3 @@ jobs:
             else
               npm run deploy -- --confirm
             fi
-      - run:
-          name: Check accessibility of deployed site
-          command: |
-            if [ "$PREVIEW" == "true" ]
-            then
-              npm run a11y:preview
-            else
-              npm run a11y
-            fi
-      - run:
-          name: General QA checks
-          command: npm run qa || echo "Automatic QA checks failed. Continuing anyway"

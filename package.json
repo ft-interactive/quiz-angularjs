@@ -50,6 +50,9 @@
   "private": true,
   "scripts": {
     "build": "gulp build",
+    "a11y": "pa11y $(ft-graphics-deploy --get-commit-url)",
+    "a11y:preview": "pa11y $(ft-graphics-deploy --preview --get-commit-url)",
+    "a11y:local": "pa11y localhost:8080",
     "postinstall": "bower install --allow-root",
     "start": "nodemon --watch gulpfile.babel.js --exec 'gulp clean && gulp serve'",
     "deploy": "ft-graphics-deploy --assets-prefix=https://ig.ft.com/v2/__assets/",

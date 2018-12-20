@@ -217,6 +217,16 @@ body {
   }
 }
 
+figure {
+  margin-right: 0;
+  margin-left: 0;
+
+  img {
+    display: block;
+    width: 100%;
+  }
+}
+
 // Animations
 .animate-splash.ng-hide {
   opacity: 0;

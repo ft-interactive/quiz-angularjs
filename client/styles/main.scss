@@ -180,7 +180,7 @@ $share-button-size: 38px;
 }
 
 .icon-arrow-down {
-  @include oIconsGetIcon('arrow-down', oColorsGetPaletteColor('grey-tint5'), 36);
+  @include oIconsGetIcon('arrow-down', oColorsGetPaletteColor('black-80'), 36);
 }
 
 .splash {

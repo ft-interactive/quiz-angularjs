@@ -53,7 +53,7 @@
     <!-- Responses sheet -->
     <!-- <script src="https://bertha.ig.ft.com/view/publish/js/{{responsesSheetKey}}/basic?d=responses"></script> -->
 
-    <link rel="stylesheet" href="https://origami-build.ft.com/v2/bundles/css?modules=o-normalise@^1,o-aside-panel@^3.0.3,o-buttons@^5.11.2,o-footer@^6.0.8,o-header@^7.4.4">
+    <link rel="stylesheet" href="https://origami-build.ft.com/v2/bundles/css?modules=o-normalise@^1.6.2,o-aside-panel@^3.0.4,o-buttons@^5.15.1,o-footer@^6.0.10,o-header@^7.7.0">
 
     <!-- smoosh -->
     <!-- build:css styles/top.css -->
@@ -83,8 +83,8 @@
     <include src="includes/analytics-ga.html"></include>
 
     <!-- TODO: set base URL **with trailing slash** -->
-    <!-- <base href="/"> -->
-    <base href="https://ig.ft.com/quiz/firstft-{{publishedDate}}/">
+    <base href="/">
+    <!-- <base href="https://ig.ft.com/quiz/firstft-{{publishedDate}}/"> -->
   </head>
 
   <body>
@@ -122,7 +122,7 @@
 
     <include src="includes/footer.html"></include>
 
-    <script>if (cutsTheMustard) addScript('https://origami-build.ft.com/v2/bundles/js?modules=o-date@^2.3.3', true, true)</script>
+    <script>if (cutsTheMustard) addScript('https://origami-build.ft.com/v2/bundles/js?modules=o-date@^2.11.0', true, true)</script>
 
     <!-- build:js scripts/main.js -->
     <script src="scripts/main.bundle.js"></script>

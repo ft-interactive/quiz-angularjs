@@ -1,6 +1,6 @@
 {
   "devDependencies": {
-    "@financial-times/g-deploy": "^3.0.7",
+    "@financial-times/g-deploy": "^3.0.8",
     "ansi-to-html": "^0.4.1",
     "auto-plug": "^1.2.0",
     "babel-core": "^6.7.4",

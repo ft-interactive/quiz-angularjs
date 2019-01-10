@@ -1,5 +1,6 @@
 {
   "devDependencies": {
+    "@financial-times/g-deploy": "^3.0.7",
     "ansi-to-html": "^0.4.1",
     "auto-plug": "^1.2.0",
     "babel-core": "^6.7.4",
@@ -16,7 +17,6 @@
     "eslint-config-airbnb": "^6.2.0",
     "eslint-config-react": "^1.1.1",
     "eslint-plugin-react": "^4.3.0",
-    "ft-graphics-deploy": "^0.1.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-data": "^1.2.1",
@@ -50,12 +50,12 @@
   "private": true,
   "scripts": {
     "build": "gulp build",
-    "a11y": "pa11y $(ft-graphics-deploy --get-commit-url)",
-    "a11y:preview": "pa11y $(ft-graphics-deploy --preview --get-commit-url)",
+    "a11y": "pa11y $(g-deploy --get-commit-url)",
+    "a11y:preview": "pa11y $(g-deploy --preview --get-commit-url)",
     "a11y:local": "pa11y localhost:8080",
     "postinstall": "bower install --allow-root",
     "start": "nodemon --watch gulpfile.babel.js --exec 'gulp clean && gulp serve'",
-    "deploy": "ft-graphics-deploy --assets-prefix=https://ig.ft.com/v2/__assets/",
+    "deploy": "g-deploy --assets-prefix=https://ig.ft.com/v2/__assets/",
     "test": "npm run build"
   },
   "dependencies": {
